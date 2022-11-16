@@ -31,9 +31,11 @@ dataset = pd.read_csv('D:\\data.csv', encoding = 'ISO-8859-1')
 dataset.plot(x='time_study', y='Marks', style='bo')
 plt.show()
 ```
-&nbsp;
-![Рисунок 1](https://github.com/Erkeri/LabNeuralNetwork/raw/master/Images/image1.png)  
-&nbsp;
+<pre>
+
+![Рисунок 1](https://github.com/Erkeri/LabNeuralNetwork/raw/master/Images/image1.png)
+
+<pre>
 Исходя из графика можно предположить, что между значениями time_study и Marks существует линейная зависимость.
 Далее необходимо подготовить данные. В начале необходимо отделить зависимые переменные от независимых.
 ```python
