@@ -21,39 +21,39 @@ from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 ```
 Далее необходимо загрузить набор данных.
-```
+```python
 dataset = pd.read_csv('D:\\data.csv', encoding = 'ISO-8859-1')
 ```
 С помощью следующего кода можно отобразить данные из набора данных в виде графика.
-```
+```python
 dataset.plot(x='time_study', y='Marks', style='bo')
 plt.show()
 ```
 [место для скриншота]
 Исходя из графика можно предположить, что между значениями time_study и Marks существует линейная зависимость.
 Далее необходимо подготовить данные. В начале необходимо отделить зависимые переменные от независимых.
-```
+```python
 x = dataset[['time_study']]
 y = dataset['Marks']
 ```
 После необходимо разделить данные на тренировочные и тестовые, для этого можно использовать всторенные метод библиотеки Scikit-Learn - train_test_split.
-```
+```python
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 ```
 После разделения данных можно преступить к обучению модели. Нужно создать экземпляр класса Linear Regression и вызвать метод fit передав в него данные для обучения.
-```
+```python
 model = LinearRegression()
 model.fit(x_train, y_train)
 ```
 После обучения уже можно сделать прогноз на тестовых данных. Для этого нужно вызвать метод predict у натренированной модели. Этот метод возвращает предсказанные значения y_pred для всех входных значений x_test.
-```
+```python
 y_pred = model.predict(x_test)
 df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
 print(df)
 ```
 [место для скриншота]
 Для оценки алгоритма можно использовать следующий код. 
-```
+```python
 print('Mean absolute error:', metrics.mean_absolute_error(y_test, y_pred))
 print('Mean squared error:', metrics.mean_squared_error(y_test, y_pred))
 print('Root mean squared error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
@@ -61,7 +61,7 @@ print('Root mean squared error:', np.sqrt(metrics.mean_squared_error(y_test, y_p
 Результат можно видеть на скриншоте ниже.
 [место для скриншота]
 Для реализации множественной линейной регрессии нужно использовать приведённый выше и набор данных с несколькими независимыми переменными. Так же нужно изменить часть с отделение независимых переменных от зависимой переменной следующим образом.
-```
+```python
 X = dataset[['Year', 'Selling_Price', 'Driven_kms', 'Fuel_Type_0', 'Selling_type_0', 'Transmission_0']]
 y = dataset['Present_Price']
 ```
