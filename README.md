@@ -53,15 +53,15 @@ y_pred = model.predict(x_test)
 df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
 print(df)
 ```
-![Рисунок 2](https://github.com/Erkeri/LabNeuralNetwork/raw/master/Images/image2.png)
+![Рисунок 2](https://github.com/Erkeri/LabNeuralNetwork/raw/master/Images/image2.png)  
 Для оценки алгоритма можно использовать следующий код. 
 ```python
 print('Mean absolute error:', metrics.mean_absolute_error(y_test, y_pred))
 print('Mean squared error:', metrics.mean_squared_error(y_test, y_pred))
 print('Root mean squared error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 ```
-Результат можно видеть на скриншоте ниже.
-![Рисунок 3](https://github.com/Erkeri/LabNeuralNetwork/raw/master/Images/image3.png)
+Результат можно видеть на скриншоте ниже.  
+![Рисунок 3](https://github.com/Erkeri/LabNeuralNetwork/raw/master/Images/image3.png)  
 Для реализации множественной линейной регрессии нужно использовать приведённый выше и набор данных с несколькими независимыми переменными. Так же нужно изменить часть с отделение независимых переменных от зависимой переменной следующим образом.
 ```python
 x = dataset[['Year', 'Selling_Price', 'Driven_kms', 'Fuel_Type_0', 'Selling_type_0', 'Transmission_0']]
